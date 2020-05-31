@@ -218,8 +218,8 @@ void OpticalFlowTracker::calculateOpticalFlow(const cv::Range &range) {
             cost = 0;
 
             // compute cost and jacobian
-            for (int x = -half_patch_size; x < half_patch_size; x++)
-                for (int y = -half_patch_size; y < half_patch_size; y++) {
+            for (int x = -half_patch_size; x <= half_patch_size; x++)
+                for (int y = -half_patch_size; y <= half_patch_size; y++) {
                     // e = I_1(x + u, y + v) - I_2(x + u + dx, y + v + dy)
                     double error = GetPixelValue(img1, kp.pt.x + x, kp.pt.y + y) -
                                    GetPixelValue(img2, kp.pt.x + x + dx, kp.pt.y + y + dy);
